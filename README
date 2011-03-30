@@ -1,1 +1,97 @@
-Hello World!
+[ NOTICE ]
+
+We're currently in planning stage, please join our discussion here: http://www.yiiframework.com/forum/index.php?/topic/17591-planning-yii-cms-a-different-approach/
+
+====================================================
+Yii Content Management System - a different approach
+====================================================
+
+
+Introduction
+
+While we have a very good and reliable PHP-framework with Yii, it still seems like there is a need for a flexible and solid Content Management System based upon Yii.
+For sure there are a few CMS-extensions for Yii, like FlexiaCMS, MongoCMS OvenCMS or phundament. But the workflow or project structure many Yii-developers choose for their applications simply does not fit in these predefined applications.
+I think that the main problem is, that these CMS modules provide just „too much“ functionality and that they are very hard to integrate in a custom app. You usually have to start with the CMS module and add your custom code to it.
+So, I would like to present a different approach for a Yii-based content management system.
+
+
+The Goal
+
+The main goal for me would be a system with really decoupled components for the tasks a user usually needs to perform to add content to a website.
+For sure some components will have to be written first, not everything is ready for download, yet. But, if available, I would like to use existing and tested Yii extensions.
+Basically it should be more a concept and a guideline on how to use the components available from the Yii extension repository and how to glue them together to create a dynamic web-application – Yii-style!
+
+
+The Application
+
+For phundament 2 I've created a picture which shows the fundamental components of a CMS. It's based on the ancient greek view of the world with for elements.
+These four elements would be air (users and authentification), soil (structure of the application), fire (content-widgets) and water (general content or data).
+Let's explain this a bit more in detail...
+
+Authenification, Users & Permissions
+
+If you want to add, edit or update any contents of your application you need to login first and have the appropriate permission to perform your task.
+For this kind of component or module we find many entries in the extension repository.
+
+These components should be easily exchangeable, because the framework connects the user and auth data with the rest of the application and provides an easy access to this data.
+
+Application Structure & Pages
+
+Another part of a CMS is the functionality to create a custom site structure.
+We need something like a custom controller which renders views and layouts read from a data storage, like MySQL or XML.
+There is already one in the extension repository and phundament also provides this functionality.
+
+
+Widgets & Cells
+
+Another important part would be a system to distribute widgets across views.
+Phundament does this with it's cellmanager widget, which simply instantiates other widgets with given parameters.
+http://code.google.c...CellManager.php
+If it finds a CWidget it renders form fields for all public properties, if it finds a widget which implements a CellManagerWidgetInterface it uses a custom form from the widget to edit the data.
+This widget can create any type of content for the application, as long as there's a widget which displays the data.
+
+Application Data
+
+Content like HTML, media-files or model data should be handled by seperate widgets and modules. Therefore I will not go into further details here, because it does not really belong to the concept.
+
+
+Conclusion
+
+In my opinion that's everything you need to create a basic CMS based upon Yii.
+A very powerful and slim solution, where you can use just the components you want, to retain maximum flexibility within your application.
+
+
+Development & Distribution
+
+For code-development I would point out two platforms.
+
+Subversion on code.google.com
+
+Currently the most popular platform for development with a lot of nice features and many developers are familiar with subversion.
+
+Git on github.com
+
+While not having too much experiences with git, I like the concept of „everything-is-a-branch“ of git very much.
+This approach could be very helpful, when dealing with a lot of different components, which are also dependent on each other.
+
+
+Open tasks
+
+Installation process
+Internationalization / Localization / Meta-Data
+Coding & Structural Guidelines
+Application & Extension Manager
+
+
+Summary
+
+I would really like to hear some feedback from you regarding the structure and concept.
+Is there already a similar project?
+Do you see pitfalls or flaws? 
+What do you think about the way of development and distribution?
+And most importantly, would you like to join this project?
+
+
+
+Best regards,
+schmunk 
